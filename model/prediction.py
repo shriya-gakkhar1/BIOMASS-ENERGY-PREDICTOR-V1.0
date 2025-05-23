@@ -5,7 +5,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
 # Load data
-data = pd.read_csv("biomass/data/sample_data.csv")
+data = pd.read_csv("data/sample_data.csv")
 
 # Features and target
 X = data[['biomass_type', 'quantity', 'temp', 'humidity']]
