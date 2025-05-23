@@ -1,6 +1,9 @@
 import streamlit as st
 import requests
 
+from model.prediction import predict_energy
+
+
 # --------------------- CONFIG ---------------------
 st.set_page_config(page_title="BioPredict", page_icon="🌱")
 
@@ -17,7 +20,7 @@ location = st.text_input("Enter Your Location (City or Village)")
 
 # --------------------- WEATHER FETCH FUNCTION ---------------------
 def get_weather(city):
-    API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"  # <- Replace this with your real key
+    API_KEY = "d9bcc47362649d83870a6bbd0946b5c8"  # <- Replace this with your real key
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     try:
         response = requests.get(url)
