@@ -1,0 +1,9 @@
+biomass_type,quantity,temp,humidity,energy_output
+Cow Dung,50,30,60,22.5
+Rice Husk,60,32,55,31.2
+Bagasse,70,28,65,29.8
+Kitchen Waste,55,33,58,26.5
+Cow Dung,80,31,62,37.4
+Rice Husk,90,29,59,42.0
+Bagasse,65,27,66,28.1
+Kitchen Waste,70,34,57,32.6
