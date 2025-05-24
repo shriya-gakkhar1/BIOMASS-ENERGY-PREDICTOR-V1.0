@@ -12,7 +12,8 @@ st.title("🌱 BioPredict – Bioenergy Forecasting App")
 st.markdown("Predict how much bioenergy (biogas or biofuel) you can produce based on biomass and weather data.")
 
 # --------------------- INPUT SECTION ---------------------
-st.header("Step 1: Enter Biomass and Location")
+name=st.text_input("Enter your name")
+st.header(" Enter Biomass and Location")
 
 biomass_type = st.selectbox("Select Biomass Type", ["Cow Dung", "Rice Husk", "Bagasse", "Kitchen Waste", "Other"])
 quantity = st.number_input("Enter Quantity (in kg)", min_value=1, step=1)
@@ -20,7 +21,7 @@ location = st.text_input("Enter Your Location (City or Village)")
 
 # --------------------- WEATHER FETCH FUNCTION ---------------------
 def get_weather(city):
-    API_KEY = "d9bcc47362649d83870a6bbd0946b5c8"  # <- Replace this with your real key
+    API_KEY = "d9bcc47362649d83870a6bbd0946b5c8" 
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     try:
         response = requests.get(url)
@@ -39,7 +40,7 @@ if st.button("Predict Energy Output"):
         if temp is not None:
             st.success(f"📍 Weather in {location}: {temp}°C, {humidity}% humidity")
 
-            # Mock Prediction Logic
+            #
             # Energy = (Quantity × Type Factor) adjusted by temp & humidity
             biomass_factors = {
                 "Cow Dung": 0.45,
@@ -57,6 +58,7 @@ if st.button("Predict Energy Output"):
 
             st.subheader("🔋 Estimated Energy Output")
             st.info(f"🌿 You can produce approximately **{predicted_energy:.2f} kWh** from {quantity} kg of {biomass_type}.")
+            st.success(f"Thank you {name} for using BioPredict!🌎")
         else:
             st.error("❌ Could not fetch weather data. Please check your location.")
     else:
